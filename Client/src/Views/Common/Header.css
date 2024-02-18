@@ -1,0 +1,34 @@
+#company-name{
+    color:white;
+}
+.navbar {
+    background-color: #004d40; /* Deep green background */
+    padding: 0.5rem 1rem; /* Adjust the padding to reduce the height */
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important; /* Ensures text color is white */
+}
+
+.navbar-brand img {
+    height: 25px; /* Adjust the logo height to fit the navbar */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center; /* Aligns the icon and text vertically */
+    padding: 0.25rem 0.5rem; /* Adjust padding to reduce height and maintain alignment */
+}
+
+.btn-outline-success {
+    color: #81c784 !important; /* Light green text */
+    border-color: #81c784; /* Light green border */
+    padding: 0.25rem 0.5rem; /* Adjust padding to make the button slimmer */
+    font-size: 0.875rem; /* Adjust font size if necessary */
+}
+
+.btn-outline-success:hover {
+    background-color: #81c784; /* Light green background on hover */
+    color: #ffffff !important;
+}

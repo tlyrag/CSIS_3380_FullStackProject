@@ -8,8 +8,8 @@ const Home = () => {
     return ( 
         <Container>
            
-            <Row>
-                <Col>
+            <Row id="carousel-row">
+                <Col id="sponsor-carousel">
                     <SponsorCarousel/>
                 </Col>
             </Row>

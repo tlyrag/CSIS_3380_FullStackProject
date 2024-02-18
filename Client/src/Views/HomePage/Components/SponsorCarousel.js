@@ -1,40 +1,62 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Row from 'react-bootstrap/Row';
 import './SponsorCarousel.css';
 import Image from 'react-bootstrap/Image';
+import getCharacterData from '../../../Controllers/ApiController';
+
+const createCarouselItems = (itemArray) => {
+  
+  if(itemArray.length===0) {
+    return <h1>Loading Item</h1>
+  }
+
+
+  return itemArray.map(item => {
+    console.log(item)
+    return (
+      <Carousel.Item key={item.id} id="carousel-item">
+        <Row>
+          <Image src={item.image}  text="Item 1" alt={item.name} id="carousel-img"></Image>
+        </Row>
+        <Row>
+          <Carousel.Caption>
+            <h3>{item.name}</h3>
+            <p>
+              {item.species}
+            </p>
+          </Carousel.Caption>
+        </Row>
+
+  
+      </Carousel.Item>
+    )
+  })
+}
 
 function ControlledCarousel() {
+
+
+
   const [index, setIndex] = useState(0);
+  const [characterList, setcharacterList] = useState([]);
+
+
+  useEffect(() => {
+    const fetchChar = async () => {
+      const apiResponse = await getCharacterData();
+      setcharacterList(apiResponse.results)
+    }
+    fetchChar();
+  }, []);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <Image src='https://i5.walmartimages.com/asr/163af2b3-079b-4033-9027-23c04701d97a.764009ae6050e85eb3bd335bb3268dc4.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF'  text="Item 1" alt="Starbucks coffee1"></Image>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-      <Image src='https://m.media-amazon.com/images/I/61huxTDtwbL.__AC_SX300_SY300_QL70_ML2_.jpg' text="Item 2" alt="Starbucks coffee2"></Image> 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-      <Image src='https://www.roastar.com/build/roastar/assets/death-wish-gusset.50814509.webp'  text="Item 1" alt="Starbucks coffee1"></Image>
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+    <Carousel activeIndex={index} onSelect={handleSelect} id="sponsor-carousel">
+      {createCarouselItems(characterList)}
     </Carousel>
   );
 }
