@@ -2,13 +2,14 @@
     max-height: 570px;
     max-width: 270px;
     justify-content: center;
+    text-align: center;
     flex-wrap: wrap;
-    margin-left: 50%;
+    margin-left:40%;
 
 }
 #carousel-caption {
     position: relative;
     font-size: 10px;
-    margin:auto;
+    margin-right:30%;
     color:black;
 }

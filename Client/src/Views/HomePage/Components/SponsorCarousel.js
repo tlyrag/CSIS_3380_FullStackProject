@@ -3,17 +3,32 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import './SponsorCarousel.css';
 import Image from 'react-bootstrap/Image';
-import getCharacterData from '../../../Controllers/ApiController';
+import getProductData from '../../../Controllers/ApiController';
+import Spinner from 'react-bootstrap/Spinner';
+
+const LoadingCarousel = ()  =>{
+  return <Spinner animation="grow" />;
+}
+
+
 
 const createCarouselItems = (itemArray) => {
   
+ 
   if(itemArray.length===0) {
-    return <h1>Loading Item</h1>
+    return (
+        <Carousel.Item id="carousel-item">
+        <Image  id="carousel-img"></Image>
+        <Carousel.Caption id="carousel-caption">
+        {LoadingCarousel()}
+        </Carousel.Caption>
+    </Carousel.Item>
+      )
+
   }
 
-
   return itemArray.map(item => {
-    console.log(item)
+
     return (
       <Carousel.Item key={item.id} id="carousel-item">
           <Image src={item.image}  text="Item 1" alt={item.title} id="carousel-img"></Image>
@@ -37,7 +52,7 @@ function ControlledCarousel() {
 
   useEffect(() => {
     const fetchChar = async () => {
-      const apiResponse = await getCharacterData();
+      const apiResponse = await getProductData(3);
       setproductList(apiResponse)
     }
     fetchChar();

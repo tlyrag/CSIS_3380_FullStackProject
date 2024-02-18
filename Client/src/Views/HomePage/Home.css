@@ -1,11 +1,14 @@
 #side-bar {
-    background-color: red;
+    background-color: #28231C;
     color: white;
 }
 #main-content {
-    background-color: blue;
-    color: white;
+    background-color: FFFFFF;
+    color: black;
 }
 #carousel-row{
     margin: 10px;
+}
+#item-list{
+    margin:30px
 }
