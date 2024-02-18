@@ -1,5 +1,5 @@
-const characterUrl ='https://rickandmortyapi.com/api/character/'
+const productApiUrl ='https://fakestoreapi.com/products?limit=5'
 
-export default characterUrl;
+export default productApiUrl;
 
 

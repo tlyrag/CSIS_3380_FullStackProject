@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Row from 'react-bootstrap/Row';
+
 import './SponsorCarousel.css';
 import Image from 'react-bootstrap/Image';
 import getCharacterData from '../../../Controllers/ApiController';
@@ -16,19 +16,12 @@ const createCarouselItems = (itemArray) => {
     console.log(item)
     return (
       <Carousel.Item key={item.id} id="carousel-item">
-        <Row>
-          <Image src={item.image}  text="Item 1" alt={item.name} id="carousel-img"></Image>
-        </Row>
-        <Row>
-          <Carousel.Caption>
-            <h3>{item.name}</h3>
-            <p>
-              {item.species}
-            </p>
+          <Image src={item.image}  text="Item 1" alt={item.title} id="carousel-img"></Image>
+          <Carousel.Caption id="carousel-caption">
+            <h5>{item.title}</h5>
+            <h5>{item.price}</h5>
+            <p>{item.description}</p>
           </Carousel.Caption>
-        </Row>
-
-  
       </Carousel.Item>
     )
   })
@@ -39,13 +32,13 @@ function ControlledCarousel() {
 
 
   const [index, setIndex] = useState(0);
-  const [characterList, setcharacterList] = useState([]);
+  const [productList, setproductList] = useState([]);
 
 
   useEffect(() => {
     const fetchChar = async () => {
       const apiResponse = await getCharacterData();
-      setcharacterList(apiResponse.results)
+      setproductList(apiResponse)
     }
     fetchChar();
   }, []);
@@ -56,7 +49,7 @@ function ControlledCarousel() {
 
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} id="sponsor-carousel">
-      {createCarouselItems(characterList)}
+      {createCarouselItems(productList)}
     </Carousel>
   );
 }
