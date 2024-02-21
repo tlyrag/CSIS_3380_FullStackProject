@@ -54,18 +54,22 @@ function ControlledCarousel() {
     const fetchChar = async () => {
       const apiResponse = await getProductData(3);
       setproductList(apiResponse)
+      
     }
     fetchChar();
-  }, []);
+  }, [productList]);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} id="sponsor-carousel">
-      {createCarouselItems(productList)}
-    </Carousel>
+    <div id="sponsor-carousel-wrapper">
+      <Carousel activeIndex={index} onSelect={handleSelect} id="sponsor-carousel">
+        {createCarouselItems(productList)}
+      </Carousel>
+    </div>
+
   );
 }
 

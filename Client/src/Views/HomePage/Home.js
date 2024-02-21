@@ -18,7 +18,7 @@ const Home = () => {
             setisLoading(false);
         }
         fetchProductList();
-        console.log(ProductList)
+       
         
     }, [ProductList]);
 

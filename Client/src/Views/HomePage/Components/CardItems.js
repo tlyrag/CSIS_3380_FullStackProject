@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import './CardItems.css'
 
 function ProductCard(props) {
-    console.log(props.products)
+    
     if(props.loading===true) {
         return (
             <Card style={{ width: '18rem' }} id="card-item">
