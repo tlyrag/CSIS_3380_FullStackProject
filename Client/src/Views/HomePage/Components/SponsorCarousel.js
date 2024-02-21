@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import './SponsorCarousel.css';
 import Image from 'react-bootstrap/Image';
-import getProductData from '../../../Controllers/ApiController';
+import apiController from '../../../Controllers/ApiController';
 import Spinner from 'react-bootstrap/Spinner';
 
 const LoadingCarousel = ()  =>{
@@ -52,7 +52,7 @@ function ControlledCarousel() {
 
   useEffect(() => {
     const fetchChar = async () => {
-      const apiResponse = await getProductData(3);
+      const apiResponse = await apiController.getProductData(3);
       setproductList(apiResponse)
       
     }

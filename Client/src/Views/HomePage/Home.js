@@ -1,37 +1,51 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SponsorCarousel from './Components/SponsorCarousel'
-import ProductCard from './Components/CardItems';
+
 import './Home.css';
 import { useState,useEffect } from 'react';
-import getProductData from '../../Controllers/ApiController' 
-
+import apiController from '../../Controllers/ApiController' 
+import MainContent from './Components/MainContent';
+import SideBar from './Components/SideBar';
 
 const Home = () => {
     const [ProductList, setProductList] = useState();
     const [isLoading, setisLoading] = useState(true);
+    const [CategoryList, setCategoryList] = useState([]);
+    const [categoryLoading, setcategoryLoading] = useState(true);
   
     useEffect(() => {
         const fetchProductList= async () => {
-            const productList = await getProductData(10);
+            const productList = await apiController.getProductData(10);
             setProductList(productList);
             setisLoading(false);
         }
+
+        const fetchCategoryList = async () => {
+            const categoryList = await apiController.getproductCategory();
+            setCategoryList(categoryList);
+            setcategoryLoading(false);
+            
+        }
+
         fetchProductList();
+        fetchCategoryList()
        
         
-    }, [ProductList]);
+    }, [ProductList,CategoryList]);
 
     return ( 
         <div>
             <Row>
-                <Col md={2} id="side-bar">SideBar</Col>
+                <Col md={2} id="side-bar">
+                    <SideBar categoryList={CategoryList} isLoading={categoryLoading}></SideBar>
+                </Col>
                 <Col md={10} id="main-content">
                     <Row id="carousel-row">
                         <SponsorCarousel id="sponsor-carousel" />
                     </Row>
                     <Row id="item-list">
-                    <ProductCard products={ProductList} loading={isLoading}></ProductCard>
+                    <MainContent products={ProductList} loading={isLoading}></MainContent>
                     </Row>
                 </Col>
             </Row>
