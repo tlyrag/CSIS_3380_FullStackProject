@@ -13,10 +13,11 @@ const Home = () => {
     const [isLoading, setisLoading] = useState(true);
     const [CategoryList, setCategoryList] = useState([]);
     const [categoryLoading, setcategoryLoading] = useState(true);
+    const [isNotFound, setisNotFound] = useState(false);
   
     useEffect(() => {
         const fetchProductList= async () => {
-            const productList = await apiController.getProductData(10);
+            const productList = await apiController.getProductData();
             setProductList(productList);
             setisLoading(false);
         }
@@ -33,6 +34,24 @@ const Home = () => {
        
         
     }, []);
+
+
+    const searchForProduct =async (productName) => {
+         const productList = await apiController.getProductData()
+         let searchProductList = productList.filter(product=> {
+            return product.title.toLowerCase().includes(productName.toLowerCase());
+         })
+         
+         if(searchProductList.length===0) {
+            setisNotFound(true);
+            setProductList(productList);
+            return;
+         }
+         setProductList(searchProductList);
+         setisNotFound(false);
+
+
+    }
 
     const filterProductByCat = async (category) => {
         const filteredProduct = await apiController.getproductByCategory(category)
@@ -51,7 +70,7 @@ const Home = () => {
                         <SponsorCarousel id="sponsor-carousel" />
                     </Row>
                     <Row id="item-list">
-                    <MainContent products={ProductList} loading={isLoading}></MainContent>
+                    <MainContent products={ProductList} loading={isLoading} handleSearchClick={searchForProduct} notFound={isNotFound}></MainContent>
                     </Row>
                 </Col>
             </Row>

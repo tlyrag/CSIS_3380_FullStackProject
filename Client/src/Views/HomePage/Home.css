@@ -1,10 +1,19 @@
 #side-bar {
     background-color: #28231C;
     color: white;
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    
+    top: 20; /* Adjust as needed */
+    left: 100; /* Adjust based on your layout */
+    z-index: 1000;
+    
 }
 #main-content {
     background-color: FFFFFF;
     color: black;
+    margin-left:300px;
 }
 #carousel-row{
     margin: 10px;
