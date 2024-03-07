@@ -10,6 +10,11 @@ function SearchBar(props) {
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
       };
+      const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            props.handleSearchClick(InputValue)
+        }
+      };
   return (
     <>
       <InputGroup className="mb-1">
@@ -19,6 +24,7 @@ function SearchBar(props) {
           aria-describedby="basic-addon2"
           value={InputValue}
           onChange={handleInputChange}
+          onKeyDown={handleKeyPress}
         />
         <Button variant="secondary" onClick={()=> {props.handleSearchClick(InputValue)}}>Search</Button>{' '}
       </InputGroup>

@@ -18,11 +18,11 @@ const createCarouselItems = (itemArray) => {
   if(itemArray.length===0) {
     return (
         <Carousel.Item id="carousel-item">
-        <Image  id="carousel-img"></Image>
-        <Carousel.Caption id="carousel-caption">
-        {LoadingCarousel()}
-        </Carousel.Caption>
-    </Carousel.Item>
+          <Image  id="carousel-img"></Image>
+          <Carousel.Caption id="carousel-caption">
+            {LoadingCarousel()}
+          </Carousel.Caption>
+        </Carousel.Item>
       )
 
   }
