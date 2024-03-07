@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-
+import "./SideBar.css"
 function SideButtons(props) {
   const [checked, setChecked] = useState(false);
   const [radioValue, setRadioValue] = useState('1');
@@ -19,14 +19,16 @@ function SideButtons(props) {
   }
 
   return (
-       <div>
+    <div className="button-group">
+      <h3 className="side-title">Product Category</h3>
         {buttons.map((radio, idx) => (
-          <div>
+          <div className="toggle-button-container">
           <ToggleButton
+            
             key={idx}
             id={`radio-${idx}`}
             type="radio"
-            variant={idx % 2 ? 'outline-success' : 'outline-danger'}
+            variant={'outline-primary'}
             name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
@@ -37,7 +39,7 @@ function SideButtons(props) {
           </ToggleButton>
             </div>
         ))}
-    </div>
+        </div>
 
   );
 }
