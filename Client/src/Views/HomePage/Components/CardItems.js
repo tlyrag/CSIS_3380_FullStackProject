@@ -4,6 +4,8 @@ import Spinner from 'react-bootstrap/Spinner';
 import './CardItems.css'
 
 function ProductCard(props) {
+
+ 
     
     if(props.loading===true) {
         return (
@@ -15,6 +17,7 @@ function ProductCard(props) {
                 <Spinner animation="grow" />
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
+               
               </Card.Body>
             </Card>
 
@@ -30,7 +33,13 @@ function ProductCard(props) {
                 <Card.Text>
                  {product.description}
                 </Card.Text>
+                <Card.Text>
+                 {product.price}
+                </Card.Text>
+               
                 <Button variant="primary">Go somewhere</Button>
+                <button onClick={() => props.addProductToCart(product)}>
+                  Add to Cart </button>
               </Card.Body>
             </Card>
           );
