@@ -31,6 +31,7 @@ function SideButtons(props) {
             value={radio.value}
             checked={radioValue === radio.value}
             onChange={(e) => setRadioValue(e.currentTarget.value)}
+            onClick = {()=> {props.handleFilterClick(radio.name)}}
           >
             {radio.name}
           </ToggleButton>

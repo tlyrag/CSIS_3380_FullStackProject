@@ -23,7 +23,7 @@ function ProductCard(props) {
 
     return props.products.map(product => {
         return (
-            <Card style={{ width: '18rem' }}  id="card">
+            <Card style={{ width: '18rem' }}  id="card"  key={product.id}>
               <Card.Img variant="top" src={product.image} />
               <Card.Body>
                 <Card.Title>{product.title}</Card.Title>

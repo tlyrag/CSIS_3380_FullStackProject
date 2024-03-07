@@ -32,13 +32,19 @@ const Home = () => {
         fetchCategoryList()
        
         
-    }, [ProductList,CategoryList]);
+    }, []);
+
+    const filterProductByCat = async (category) => {
+        const filteredProduct = await apiController.getproductByCategory(category)
+        console.log(filteredProduct)
+        setProductList(filteredProduct)
+    }
 
     return ( 
         <div>
             <Row>
                 <Col md={2} id="side-bar">
-                    <SideBar categoryList={CategoryList} isLoading={categoryLoading}></SideBar>
+                    <SideBar categoryList={CategoryList} isLoading={categoryLoading} handleFilterClick = {filterProductByCat}></SideBar>
                 </Col>
                 <Col md={10} id="main-content">
                     <Row id="carousel-row">
