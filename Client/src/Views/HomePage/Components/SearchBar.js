@@ -17,7 +17,7 @@ function SearchBar(props) {
       };
   return (
     <>
-      <InputGroup className="mb-1">
+      <InputGroup className="mb-1" id="search-bar">
         <Form.Control
           placeholder="Enter Item"
           aria-label="Recipient's username"

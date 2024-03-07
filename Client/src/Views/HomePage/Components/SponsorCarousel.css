@@ -20,6 +20,10 @@
     border: 2px solid #28231C;
     border-radius: 10px;
     box-shadow:1px -1px 5px #000; 
+    height: 570px;
+    max-width: 1000px;
+    margin-left:100px;
+    display:flex;
 }
 #carousel-item {
     filter:drop-shadow(0px px)

@@ -30,7 +30,7 @@ const createCarouselItems = (itemArray) => {
   return itemArray.map(item => {
 
     return (
-      <Carousel.Item key={item.id} id="carousel-item">
+      <Carousel.Item key={item.id} id="carousel-item" interval={1000}>
           <Image src={item.image}  text="Item 1" alt={item.title} id="carousel-img"></Image>
           <Carousel.Caption id="carousel-caption">
             <h5>{item.title}</h5>
