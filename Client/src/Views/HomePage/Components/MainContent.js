@@ -2,7 +2,10 @@ import ProductCard from "./CardItems";
 import SearchBar from "./SearchBar"
 import Row from 'react-bootstrap/Row';
 import ShopCart from "./ShopCart";
-import "./MainContent.css"
+
+
+import "./MainContent.css";
+
 const MainContent = (props) => {
     return (
         <div>
@@ -16,10 +19,10 @@ const MainContent = (props) => {
         </Row>
             
         <Row>
-        <ShopCart cartProduct={props.cartProduct}/>
-       
-      
+        <ShopCart cartProduct={props.cartProduct} setCartProduct={ props.setCartProduct} />
+
         </Row>
+        
        
             
         </div>

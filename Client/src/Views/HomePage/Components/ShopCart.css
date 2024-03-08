@@ -1,0 +1,108 @@
+/* ShopCart.css */
+
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+.col button {
+    font-size: 1.5rem;
+    margin: 0.2rem;
+}
+
+.col button.decrement, .col button.increment {
+    font-size: 1rem; /* Adjust the font size for - and + buttons */
+}
+
+
+.col span {
+    margin: 0 0.5rem;
+    font-weight: bold;
+}
+
+.quantity button {
+    background-color: beige; /* Beige color */
+    color: #007bff; /* Blue color for text */
+    border: 1px solid #007bff; /* Blue border */
+    padding: 8px 12px; /* Slightly larger size */
+    cursor: pointer;
+  
+}
+
+.checkout-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 18px; /* Slightly larger size */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-to-shop {
+    margin-top: 20px;
+}
+
+.summary {
+    margin-top: 20px;
+}
+
+.delete-element {
+    border:none;
+    cursor: pointer;
+    color: #ff0000; /* Red color */
+    font-size: 16px; /* Adjust the font size for the delete button */
+}
+
+.img-fluid {
+    width: 4rem; /* Slightly larger size */
+}
+
+h5 {
+    margin-top: 4vh;
+}
+
+hr {
+    margin-top: 1.25rem;
+}
+
+form {
+    padding: 2vh 0;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh; /* Slightly larger size */
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    transition: none;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn-checkout {
+    background-color: white;
+    border: 1px solid grey;
+    color: black;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-checkout:hover {
+    background-color: #555; /* Darker grey on hover */
+}
+
+

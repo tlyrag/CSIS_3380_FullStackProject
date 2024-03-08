@@ -100,7 +100,8 @@ const Home = () => {
                         <SponsorCarousel id="sponsor-carousel" />
                     </Row>
                     <Row id="item-list">
-                    <MainContent products={ProductList} loading={isLoading} handleSearchClick={searchForProduct} notFound={isNotFound} addProductToCart={addProductCart} cartProduct={cartProduct} />
+                    <MainContent products={ProductList} loading={isLoading} handleSearchClick={searchForProduct} notFound={isNotFound} 
+                    addProductToCart={addProductCart} cartProduct={cartProduct} setCartProduct={setCartProduct} />
                     </Row>
                 </Col>
             </Row>
