@@ -3,7 +3,10 @@ import apiUrls from '../Models/ApiUrls'
 const getProductData = (numItem) => {
     return fetch(apiUrls.productApiUrl(numItem))
     .then(response=>response.json())
-    .then(data=> data)
+    .then(data=> {
+        console.log(data) 
+        return data
+    })
     .catch(err=> console.log(`Error consuming api ${err}`))
 }
  

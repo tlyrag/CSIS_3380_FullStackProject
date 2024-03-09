@@ -57,7 +57,7 @@ function ControlledCarousel() {
       
     }
     fetchChar();
-  }, [productList]);
+  }, []);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
