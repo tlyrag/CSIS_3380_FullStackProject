@@ -16,7 +16,7 @@ function ProductCard(props) {
                 <Card.Text>
                 <Spinner animation="grow" />
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">See Details</Button>
                
               </Card.Body>
             </Card>
@@ -33,13 +33,13 @@ function ProductCard(props) {
                 <Card.Text>
                  {product.description}
                 </Card.Text>
-                <Card.Text>
+                <Card.Text>$ 
                  {product.price}
                 </Card.Text>
-               
+                <button className="add-cart" onClick={() => props.addProductToCart(product)}>
+                  Add to Cart </button><br/>
                 <Button variant="primary">Go somewhere</Button>
-                <button onClick={() => props.addProductToCart(product)}>
-                  Add to Cart </button>
+                
               </Card.Body>
             </Card>
           );

@@ -19,8 +19,7 @@ const MainContent = (props) => {
         </Row>
             
         <Row>
-        <ShopCart cartProduct={props.cartProduct} setCartProduct={ props.setCartProduct} />
-
+        {props.showCart && <ShopCart cartProduct={props.cartProduct} setCartProduct={props.setCartProduct} showCart={props.showCart} setShowCart={props.setShowCart} />}
         </Row>
         
        

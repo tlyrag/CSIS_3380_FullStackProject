@@ -34,7 +34,7 @@ const createCarouselItems = (itemArray) => {
           <Image src={item.image}  text="Item 1" alt={item.title} id="carousel-img"></Image>
           <Carousel.Caption id="carousel-caption">
             <h5>{item.title}</h5>
-            <h5>{item.price}</h5>
+            <h5>$ {item.price}</h5>
             <p>{item.description}</p>
           </Carousel.Caption>
       </Carousel.Item>

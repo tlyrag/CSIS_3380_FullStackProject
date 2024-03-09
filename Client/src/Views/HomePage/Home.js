@@ -1,14 +1,13 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SponsorCarousel from './Components/SponsorCarousel'
 
+import SponsorCarousel from './Components/SponsorCarousel'
+import { Row, Col, Button } from 'react-bootstrap';
 import './Home.css';
 import { useState,useEffect } from 'react';
 import apiController from '../../Controllers/ApiController' 
 import MainContent from './Components/MainContent';
 import SideBar from './Components/SideBar';
 
-const Home = () => {
+const Home = (props) => {
     const [ProductList, setProductList] = useState();
     const [isLoading, setisLoading] = useState(true);
     const [CategoryList, setCategoryList] = useState([]);
@@ -57,15 +56,11 @@ const Home = () => {
 
     const filterProductByCat = async (category) => {
         const filteredProduct = await apiController.getproductByCategory(category)
-        console.log(filteredProduct)
         setProductList(filteredProduct)
     }
     const addProductCart = (selectedProduct) => {
-        console.log('Adding to cart:', selectedProduct);
-    
-        // Check the current state before updating
-        console.log('Current Cart Product state:', cartProduct);
-    
+       
+
         const selectedProducts = cartProduct.find(item => item.product.id === selectedProduct.id);
     
         if (selectedProducts) {
@@ -84,8 +79,7 @@ const Home = () => {
             ]);
         }
     
-        // Check the updated state after the update
-        console.log('Updated Cart Product state:', cartProduct);
+       
     };
     
 
@@ -101,7 +95,7 @@ const Home = () => {
                     </Row>
                     <Row id="item-list">
                     <MainContent products={ProductList} loading={isLoading} handleSearchClick={searchForProduct} notFound={isNotFound} 
-                    addProductToCart={addProductCart} cartProduct={cartProduct} setCartProduct={setCartProduct} />
+                    addProductToCart={addProductCart} cartProduct={cartProduct} setCartProduct={setCartProduct} showCart={props.showCart} setShowCart={props.setShowCart} />
                     </Row>
                 </Col>
             </Row>
