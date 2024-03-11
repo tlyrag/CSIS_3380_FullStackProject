@@ -1,6 +1,11 @@
-.card{
-    margin:10px;
+.card {
+  margin: 10px;
 }
-.add-cart{
-    margin-bottom: 5px;
+.add-cart {
+  margin-bottom: 5px;
+}
+.toast-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
