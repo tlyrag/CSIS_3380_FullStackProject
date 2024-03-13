@@ -10,6 +10,11 @@ function ProductCard(props) {
     props.addProductToCart(product);
     setAddedItem(product);
     setShowToast(true);
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
   };
 
   if (props.loading === true) {
@@ -54,7 +59,7 @@ function ProductCard(props) {
         onClose={() => setShowToast(false)}
         delay={3000}
         autohide
-        className="toast-container"
+        className="toast-container show"
       >
         <Toast.Header>
           <strong className="me-auto">Shopping Cart</strong>
@@ -62,7 +67,7 @@ function ProductCard(props) {
         <Toast.Body>
           {addedItem && (
             <>
-            <h4>Item added to cart:</h4>
+              <h4>Item added to cart:</h4>
               <img
                 src={addedItem.image}
                 alt={addedItem.title}
