@@ -18,7 +18,7 @@ const Home = (props) => {
   
     useEffect(() => {
         const fetchProductList= async () => {
-            const productList = await apiController.getProductData();
+            const productList = await apiController.getProductData(20);
             setProductList(productList);
             setisLoading(false);
         }
