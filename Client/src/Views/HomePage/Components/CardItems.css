@@ -1,6 +1,21 @@
-.card{
-    margin:10px;
+.card {
+  margin: 10px;
 }
-.add-cart{
-    margin-bottom: 5px;
+
+.add-cart {
+  margin-bottom: 5px;
+}
+
+.toast-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.toast-container.show {
+  opacity: 1;
+  visibility: visible;
 }

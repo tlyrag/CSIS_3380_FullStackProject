@@ -2,60 +2,68 @@ import React, { useState } from 'react';
 import './ShopCart.css';
 
 const ShopCart = (props) => {
-    const [selectedShipping, setSelectedShipping] = useState("");
+  const [selectedShipping, setSelectedShipping] = useState("");
+  const [totalItems, setTotalItems] = useState(0);
 
-    
-    const showCart = () => {
-        props.setShowCart(false);
+  function showCart() {
+    props.setShowCart(false);
+  }
+
+  const handleShippingChange = (e) => {
+    setSelectedShipping(e.target.value);
+  };
+
+  const calculateTotalItems = () => {
+    const total = props.cartProduct.reduce((sum, item) => sum + item.quantity, 0);
+    setTotalItems(total);
+    return total;
+  };
+
+  const handleIncrement = (index) => {
+    const updatedCart = [...props.cartProduct];
+    updatedCart[index].quantity += 1;
+    props.setCartProduct(updatedCart);
+    calculateTotalItems();
+  };
+
+  const handleDecrement = (index) => {
+    const updatedCart = [...props.cartProduct];
+    if (updatedCart[index].quantity > 1) {
+      updatedCart[index].quantity -= 1;
+      props.setCartProduct(updatedCart);
+      calculateTotalItems();
     }
+  };
 
-    const handleShippingChange = (e) => {
-        setSelectedShipping(e.target.value);
-    };
+  const handleDelete = (index) => {
+    const updatedCart = [...props.cartProduct];
+    updatedCart.splice(index, 1);
+    props.setCartProduct(updatedCart);
+    calculateTotalItems();
+  };
 
-    const handleIncrement = (index) => {
-        const updatedCart = [...props.cartProduct];
-        updatedCart[index].quantity += 1;
-        props.setCartProduct(updatedCart);
-    };
-
-    const handleDecrement = (index) => {
-        const updatedCart = [...props.cartProduct];
-        if (updatedCart[index].quantity > 1) {
-            updatedCart[index].quantity -= 1;
-            props.setCartProduct(updatedCart);
-        }
-    };
-
-    const handleDelete = (index) => {
-        const updatedCart = [...props.cartProduct];
-        updatedCart.splice(index, 1);
-        props.setCartProduct(updatedCart);
-    };
-
-    const calculateTotal = () => {
-        const subtotal = props.cartProduct.reduce((total, item) => total + item.product.price * item.quantity, 0);
-        const shippingCost = selectedShipping === "standard" ? 5 : selectedShipping === "premium" ? 10 : 0;
-        return subtotal + shippingCost;
-    };
-
-    return (
-        <div className="cart-overlay">
-            <div className="shop-card">
-                <div className="row">
-                    <div className="col-md-8 cart">
-                        <div className="title">
-                            <div className="row">
-                                <div className="col">
-                                    <h4>
-                                        <b>Shopping Cart</b>
-                                    </h4>
-                                </div>
-                                <div className="col align-self-center text-right text-muted">
-                                    {props.cartProduct.length} items
-                                </div>
-                            </div>
-                        </div>
+  const calculateTotal = () => {
+    const subtotal = props.cartProduct.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    const shippingCost = selectedShipping === "standard" ? 5 : selectedShipping === "premium" ? 10 : 0;
+    return subtotal + shippingCost;
+  };
+  return (
+    <div className="cart-overlay">
+      <div className="card">
+        <div className="row">
+          <div className="col-md-8 cart">
+            <div className="title">
+              <div className="row">
+                <div className="col">
+                  <h4>
+                    <b>Shopping Cart</b>
+                  </h4>
+                </div>
+                <div className="col align-self-center text-right text-muted">
+                  {totalItems} items
+                </div>
+              </div>
+            </div>
                         {props.cartProduct.map((item, index) => (
                             <div key={index} className="row border-top border-bottom">
                                 <div className="row main align-items-center">
@@ -100,7 +108,7 @@ const ShopCart = (props) => {
                         <hr />
                         <div className="row">
                             <div className="col" style={{ paddingLeft: 0 }}>
-                                ITEMS {props.cartProduct.length}
+                                ITEMS {totalItems}
                             </div>
                             <div className="col text-right">
                                 ${' '}
