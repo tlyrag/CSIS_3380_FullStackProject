@@ -15,10 +15,7 @@ export default(app) => {
     
         try {
             const categoryList = await DataController.getCategoryLists(StaticData.data);
-            res.json({
-                ok:true,
-                categoryList
-            })
+            res.json(categoryList)
         }
         catch(error) {
             res.json({
@@ -33,10 +30,7 @@ export default(app) => {
         const limit = req.query.limit;
         try {
             const productList = await DataController.getProductList(limit,StaticData.data);
-            res.json({
-                ok:true,
-                productList
-            })
+            res.json(productList)
         }
         catch(error) {
             res.json({
@@ -52,10 +46,7 @@ export default(app) => {
         const id = req.params.id;
         try {
             const product = await DataController.getProduct(id,StaticData.data);
-            res.json({
-                ok:true,
-                product    
-            })
+            res.json(product)
         } catch(error) {
             res.json({
                 ok:false,
@@ -68,10 +59,7 @@ export default(app) => {
         const category = req.params.category;
         try {
             const productList = await DataController.getProductByCategory(category,StaticData.data);
-            res.json({
-                ok:true,
-                productList    
-            })
+            res.json(productList)
         } catch(error) {
             res.json({
                 ok:false,

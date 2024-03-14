@@ -1,7 +1,7 @@
 
 export default {
     async getCategoryLists  (dataArray)  {
-        const categoryList = ["test"];
+        const categoryList = [];
         console.log(dataArray)
         dataArray.map(data=> {
             if(!categoryList.includes(data.category)) {
