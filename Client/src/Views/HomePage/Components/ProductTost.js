@@ -30,4 +30,4 @@ function ProductToasta() {
   );
 }
 
-export default AutohideExample;
+export default ProductToasta;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ShopCart.css';
+import { Button,Dropdown,DropdownButton   } from "react-bootstrap";
 
 const ShopCart = (props) => {
   const [selectedShipping, setSelectedShipping] = useState("");
@@ -78,25 +79,25 @@ const ShopCart = (props) => {
                                         <div className="row text-muted">{item.product.title}</div>
                                     </div>
                                     <div className="col">
-                                        <button className="decrement" onClick={() => handleDecrement(index)}>
+                                        <Button className="decrement" onClick={() => handleDecrement(index)}>
                                             -
-                                        </button>
+                                        </Button>
                                         <span className="border"> {item.quantity}</span>
-                                        <button className="increment" onClick={() => handleIncrement(index)}>
+                                        <Button className="increment" onClick={() => handleIncrement(index)}>
                                             +
-                                        </button>
+                                        </Button>
                                     </div>
                                     <div className="col">
                                         $ {item.product.price * item.quantity}
-                                        <button className="delete-element" onClick={() => handleDelete(index)}>
+                                        <Button className="delete-element" onClick={() => handleDelete(index)}>
                                             &#10005;
-                                        </button>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
                         ))}
                         <div className="back-to-shop">
-                            <button className="text-muted" onClick={() => showCart()}>Back to shop</button>
+                            <Button className="text-muted" onClick={() => showCart()}>Back to shop</Button>
                         </div>
                     </div>
                     <div className="col-md-4 summary">
@@ -119,11 +120,11 @@ const ShopCart = (props) => {
                         </div>
                         <form>
                             <p>SHIPPING</p>
-                            <select onChange={(e) => handleShippingChange(e)} value={selectedShipping}>
-                                <option value="">Select Shipping</option>
-                                <option value="standard">Standard Delivery - $5.00</option>
-                                <option value="premium">Premium Delivery - $10.00</option>
-                            </select>
+                            <DropdownButton  onChange={(e) => handleShippingChange(e)} value={selectedShipping} title="Select Shipping Method">
+                                <Dropdown.Item value="">Select Shipping</Dropdown.Item>
+                                <Dropdown.Item value="standard">Standard Delivery - $5.00</Dropdown.Item>
+                                <Dropdown.Item value="premium">Premium Delivery - $10.00</Dropdown.Item>
+                            </DropdownButton>
                             <p>Promotion code</p>
                             <input id="code" placeholder="Enter your code" />
                         </form>
@@ -136,9 +137,9 @@ const ShopCart = (props) => {
                                 $ {calculateTotal().toFixed(2)}
                             </div>
                         </div>
-                        <button className="btn-checkout" style={{ borderColor: 'grey' }}>
+                        <Button className="btn-checkout" style={{ borderColor: 'grey' }}>
                             CHECKOUT
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>
