@@ -1,7 +1,7 @@
 const env = "local";
 
 const getApiUrl = ()=> {
-    if(env=="local") {
+    if(env==="local") {
         return "http://localhost:5847";
     }
     return "https://fakestoreapi.com"
