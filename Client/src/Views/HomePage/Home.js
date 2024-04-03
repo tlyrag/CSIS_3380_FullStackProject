@@ -39,6 +39,7 @@ const Home = (props) => {
 
     const searchForProduct =async (productName) => {
          const productList = await apiController.getProductData()
+         console.log(productList);
          let searchProductList = productList.filter(product=> {
             return product.title.toLowerCase().includes(productName.toLowerCase());
          })
