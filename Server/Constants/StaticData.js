@@ -5,7 +5,7 @@ const data = [
       "title": "Espresso",
       "description": "Espresso is made by forcing nearly boiling water through finely-ground coffee beans, which results in a concentrated, syrup-like coffee drink. This is the base for many Italian beverages in coffee shops. When compared to regular brewed coffee, espresso is much stronger than the other types of coffee drinks. Espressos are enjoyed in shots where a single shot is one ounce and a long (single and double) shot is two ounces in amount, respectively.",
       "category": "Arabica",
-      "image": "\\Client\\public\\assets\\images\\Espresso.jpg",
+      "image": "https://www.google.com/imgres?q=expresso%20image&imgurl=https%3A%2F%2Fmedia.gettyimages.com%2Fid%2F923845184%2Fphoto%2Fmale-hands-pouring-espresso-martini-cocktail-into-glass.jpg%3Fs%3D612x612%26w%3Dgi%26k%3D20%26c%3Dadc1RDt-u1HMFhN4ZtueeXKKq1ULHIHb9q6BQz2BwDE%3D&imgrefurl=https%3A%2F%2Fwww.gettyimages.com%2Fphotos%2Fespresso&docid=80J9mwojkzgWwM&tbnid=HJ7zmXnWgb4WbM&vet=12ahUKEwij5JzW8qSFAxWSFzQIHSQ_D1kQM3oECGkQAA..i&w=612&h=408&hcb=2&ved=2ahUKEwij5JzW8qSFAxWSFzQIHSQ_D1kQM3oECGkQAA",
       "price": 4.56
     },
     {
@@ -161,4 +161,4 @@ const data = [
       "price": 4.86
     }
   ]
-
+export default{data} ;

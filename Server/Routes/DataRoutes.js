@@ -15,6 +15,7 @@ export default(app) => {
     
         try {
             const categoryList = await DataController.getCategoryLists(StaticData.data);
+            
             res.json(categoryList)
         }
         catch(error) {
@@ -28,8 +29,11 @@ export default(app) => {
 
     app.get('/products',async (req,res) => {
         const limit = req.query.limit;
+       
         try {
+            console.log(StaticData.data)
             const productList = await DataController.getProductList(limit,StaticData.data);
+            
             res.json(productList)
         }
         catch(error) {

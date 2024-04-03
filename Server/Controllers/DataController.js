@@ -14,7 +14,7 @@ export default {
 
     async getProductList(limit,dataArray) {
         let int = 0;
-        
+        console.log(dataArray)
 
         if(limit>dataArray.length) {
             limit = dataArray.length;
