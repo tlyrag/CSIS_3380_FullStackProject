@@ -7,10 +7,7 @@ const productSchema = new mongoose.Schema({
     description:{type:String,required:true},
     category:{type:String,require:true},
     image:{type:String,required:true},
-    rating:{
-        rate:{type:Number,required:true},
-        count:{type:Number,required:true}
-    },
+
 
 })
 

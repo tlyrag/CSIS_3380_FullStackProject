@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 import dbModel from "../Model/DatabaseProductModel.js"
 import testList from "../Model/StaticData.js"
+import 'dotenv/config'
 
-const URI = "mongodb://127.0.0.1/Product";
+
+
 
 const connect = async () => {
     try {
-        await mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    
+        await mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log('Connected to MongoDB');
     }
     catch(error) {
@@ -29,7 +32,7 @@ const createData  = async () => {
         const category = product.category;
         const image = product.image;
         const rating = product.rating;
-
+        
         const newProduct = new dbModel.Product({
             id,
             title,
@@ -39,7 +42,9 @@ const createData  = async () => {
             image,
             rating
         })
+        console.log(newProduct);
         await newProduct.save();
+        
     })
     
 }
