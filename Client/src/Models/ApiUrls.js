@@ -1,5 +1,4 @@
 
-
 const getApiUrl = () => {
     try {
         console.log(`This is the env variable ${process.env.REACT_APP_API_URL}`);
