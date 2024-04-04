@@ -1,11 +1,14 @@
-const env = "local";
 
-const getApiUrl = ()=> {
-    if(env=="local") {
-        return "http://localhost:5847";
+const getApiUrl = () => {
+    try {
+        console.log(`This is the env variable ${process.env.REACT_APP_API_URL}`);
+        console.log(`this is the enviroment ${process.env.NODE_ENV}`)
+    } catch {   
+        console.log("Not working")
     }
-    return "https://fakestoreapi.com"
-}
+    
+    return process.env.REACT_APP_API_URL || "http://localhost:5847"
+};
 
 
 const productApiUrl = (itemNumber) =>{

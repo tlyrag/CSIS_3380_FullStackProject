@@ -1,9 +1,13 @@
 import DataController from "../Controllers/DataController.js"
-import StaticData from "../Constants/StaticData.js"
+import DBController from "../Controllers/DatabaseController.js"
+import StaticData from "../Model/StaticData.js"
+
 
 export default(app) => {
     // Check if server is up and running
     app.get('/api/v1/health-check',(req,res) => {
+        DBController.createData()
+
         res.json({
             ok:true,
             data:{},
@@ -14,8 +18,9 @@ export default(app) => {
     app.get('/products/categories',async (req,res) => {
     
         try {
-            const categoryList = await DataController.getCategoryLists(StaticData.data);
+            const productsFromDb = await DBController.getAllProducts();
             
+            const categoryList = await DataController.getCategoryLists(productsFromDb);
             res.json(categoryList)
         }
         catch(error) {
@@ -29,11 +34,9 @@ export default(app) => {
 
     app.get('/products',async (req,res) => {
         const limit = req.query.limit;
-       
         try {
-            console.log(StaticData.data)
-            const productList = await DataController.getProductList(limit,StaticData.data);
-            
+            const productsFromDb = await DBController.getAllProducts();
+            const productList = await DataController.getProductList(limit,productsFromDb);
             res.json(productList)
         }
         catch(error) {
@@ -49,7 +52,8 @@ export default(app) => {
     app.get('/products/:id',async (req,res) => {
         const id = req.params.id;
         try {
-            const product = await DataController.getProduct(id,StaticData.data);
+            const productsFromDb = await DBController.getAllProducts();
+            const product = await DataController.getProduct(id,productsFromDb);
             res.json(product)
         } catch(error) {
             res.json({
@@ -62,7 +66,8 @@ export default(app) => {
     app.get('/products/category/:category',async (req,res)=> {
         const category = req.params.category;
         try {
-            const productList = await DataController.getProductByCategory(category,StaticData.data);
+            const productsFromDb = await DBController.getAllProducts();
+            const productList = await DataController.getProductByCategory(category,productsFromDb);
             res.json(productList)
         } catch(error) {
             res.json({

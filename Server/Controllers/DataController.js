@@ -2,7 +2,7 @@
 export default {
     async getCategoryLists  (dataArray)  {
         const categoryList = [];
-        console.log(dataArray)
+        
         dataArray.map(data=> {
             if(!categoryList.includes(data.category)) {
                 categoryList.push(data.category)
