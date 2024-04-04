@@ -21,7 +21,7 @@ app.use((req,res,next) => {
     res.header('Access-Control-Allow-cREDENTIALS', 'true');
     next();
 })
-
+console.log(process.env.NODE_ENV);
 const createServer = async () =>{
     await mongodb.connect();
     app.listen(port, () => console.log(`========== Server Started At Port ${port} ==========`))

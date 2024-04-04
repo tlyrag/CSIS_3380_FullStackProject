@@ -1,8 +1,12 @@
 
 
-
-
 const getApiUrl = () => {
+    try {
+        console.log(process.env.REACT_APP_API_URL);
+    } catch {   
+        console.log("Not working")
+    }
+    
     return process.env.REACT_APP_API_URL || "http://localhost:5847"
 };
 
