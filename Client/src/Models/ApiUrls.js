@@ -1,10 +1,10 @@
-const env = "local";
+const env = "Not Local"
 
 const getApiUrl = ()=> {
     if(env==="local") {
         return "http://localhost:5847";
     }
-    return "https://fakestoreapi.com"
+    return "https://organiccofees.onrender.com/"
 }
 
 
