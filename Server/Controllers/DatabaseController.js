@@ -8,7 +8,7 @@ import 'dotenv/config'
 
 const connect = async () => {
     try {
-    
+        console.log(process.env.DBURI)
         await mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log('Connected to MongoDB');
     }
