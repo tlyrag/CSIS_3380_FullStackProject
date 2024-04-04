@@ -6,7 +6,7 @@ import StaticData from "../Model/StaticData.js"
 export default(app) => {
     // Check if server is up and running
     app.get('/api/v1/health-check',(req,res) => {
-        //DBController.createData()
+        DBController.createData()
 
         res.json({
             ok:true,

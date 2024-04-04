@@ -2,7 +2,7 @@
 
 const getApiUrl = () => {
     try {
-        console.log(process.env.REACT_APP_API_URL);
+        console.log(`This is the env variable ${process.env.REACT_APP_API_URL}`);
     } catch {   
         console.log("Not working")
     }
