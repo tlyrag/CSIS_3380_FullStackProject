@@ -1,9 +1,15 @@
 # CSIS_3380_FullStackProject
 
+ Run local
+1-  Clone Repository
+2 npm install on Client Path and Server Path
+3- add the .env to Server folder with DBURI = "Mongo address"
+4- add the .env.local to Client folder with REACT_APP_API_URL="http://localhost:5847"
+5- npm start on client
+6- npm run dev on server
 
-Clone Repository
-Npm Install on Client Path and Server Path
-Make sure you have MongoDB installed on  your computer
-NPM Run Dev on back end
-If you are running Local and dont have any data in your database you may call the health-Check api to insert data into your DB
-Npm start on the client
+To deploy 
+
+1- Delete the build folder in inside the server
+2- npm run build:prod
+3- commit and push to branch
