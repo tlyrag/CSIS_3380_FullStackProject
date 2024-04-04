@@ -1,11 +1,10 @@
-const env = process.env.ENV
 
-const getApiUrl = ()=> {
-    if(env==="local") {
-        return "http://localhost:5847";
-    }
-    return "https://organiccofees.onrender.com/"
-}
+
+
+
+const getApiUrl = () => {
+    return process.env.REACT_APP_API_URL || "http://localhost:5847"
+};
 
 
 const productApiUrl = (itemNumber) =>{
