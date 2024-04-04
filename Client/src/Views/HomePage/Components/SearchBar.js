@@ -12,6 +12,7 @@ function SearchBar(props) {
       };
       const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
+         
             props.handleSearchClick(InputValue)
         }
       };
