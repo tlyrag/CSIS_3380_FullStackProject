@@ -1,4 +1,4 @@
-const env = "Not Local"
+const env = process.env.ENV
 
 const getApiUrl = ()=> {
     if(env==="local") {
