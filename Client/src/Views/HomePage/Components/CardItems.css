@@ -1,5 +1,10 @@
-.card {
+#card {
   margin: 10px;
+  height: fit-content;
+}
+.cardImage {
+  width: 50px;
+  height: 50px;
 }
 
 .add-cart {
@@ -18,4 +23,8 @@
 .toast-container.show {
   opacity: 1;
   visibility: visible;
+}
+.card-img, .card-img-bottom, .card-img-top {
+  width: 100%;
+  max-height: 175px;
 }

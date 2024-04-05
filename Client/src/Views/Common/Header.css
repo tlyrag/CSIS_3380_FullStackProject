@@ -4,6 +4,7 @@
 .navbar {
     background-color: #004d40; /* Deep green background */
     padding: 0.5rem 1rem; /* Adjust the padding to reduce the height */
+    width: 100%;
 }
 
 .navbar-brand, .nav-link {

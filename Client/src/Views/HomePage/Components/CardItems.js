@@ -38,11 +38,11 @@ function ProductCard(props) {
     <>
       {props.products.map((product) => (
         <Card style={{ width: "18rem" }} id="card" key={product.id}>
-          <Card.Img variant="top" src={product.image} />
+          <Card.Img id="cardImage" variant="top" src={product.image} />
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
-            <Card.Text>{product.description}</Card.Text>
-            <Card.Text>${product.price}</Card.Text>
+            {/* <Card.Text>{product.description}</Card.Text> */}
+            <Card.Text>CAD$ ${product.price}</Card.Text>
             <Button
               className="add-cart"
               onClick={() => handleAddToCart(product)}
@@ -50,7 +50,6 @@ function ProductCard(props) {
               Add to Cart{" "}
             </Button>
             <br />
-            <Button variant="primary">Go somewhere</Button>
           </Card.Body>
         </Card>
       ))}

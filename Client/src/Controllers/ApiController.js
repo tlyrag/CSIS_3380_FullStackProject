@@ -6,7 +6,7 @@ const getProductData = (numItem) => {
     
     .then(response=>response.json())
     .then(data=> {
-        
+
         return data
     })
     .catch(err=> console.log(`Error consuming api ${err}`))
