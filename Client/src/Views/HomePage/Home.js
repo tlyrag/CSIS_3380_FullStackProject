@@ -88,10 +88,10 @@ const Home = (props) => {
     return ( 
         <div>
             <Row>
-                <Col md={2} id="side-bar">
+                <Col md={3} id="side-bar">
                     <SideBar categoryList={CategoryList} isLoading={categoryLoading} handleFilterClick = {filterProductByCat}></SideBar>
                 </Col>
-                <Col md={10} id="main-content">
+                <Col md={9} id="main-content">
                     <Row id="carousel-row">
                         <SponsorCarousel id="sponsor-carousel" />
                     </Row>
