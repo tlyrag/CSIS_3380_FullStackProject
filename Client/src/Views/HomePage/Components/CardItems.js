@@ -1,8 +1,11 @@
-import { Card, Spinner, Button, Toast } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Card, Spinner, Button, Toast } from 'react-bootstrap';
 import "./CardItems.css";
-import { useState } from "react";
+import ProductDetailsModal from './productDetailsModal';
 
 function ProductCard(props) {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [showToast, setShowToast] = useState(false);
   const [addedItem, setAddedItem] = useState(null);
 
@@ -15,6 +18,11 @@ function ProductCard(props) {
     setTimeout(() => {
       setShowToast(false);
     }, 3000);
+  };
+
+  const handleShowDetails = (product) => {
+    setSelectedProduct(product);
+    setShowModal(true);
   };
 
   if (props.loading === true) {
@@ -37,22 +45,32 @@ function ProductCard(props) {
   return (
     <>
       {props.products.map((product) => (
-        <Card style={{ width: "18rem" }} id="card" key={product.id}>
-          <Card.Img id="cardImage" variant="top" src={product.image} />
+        <Card style={{ width: "18rem" }} id="card" key={product.id}  >
+          <Card.Img
+            id="cardImage"
+            variant="top"
+            src={product.image}
+            onClick={() => handleShowDetails(product)}
+          />
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
-            {/* <Card.Text>{product.description}</Card.Text> */}
             <Card.Text>CAD$ ${product.price}</Card.Text>
             <Button
               className="add-cart"
               onClick={() => handleAddToCart(product)}
             >
-              Add to Cart{" "}
+              Add to Cart
             </Button>
             <br />
           </Card.Body>
         </Card>
       ))}
+      <ProductDetailsModal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        product={selectedProduct}
+        addToCart={handleAddToCart} // Pass addToCart function
+      />
       <Toast
         show={showToast}
         onClose={() => setShowToast(false)}
