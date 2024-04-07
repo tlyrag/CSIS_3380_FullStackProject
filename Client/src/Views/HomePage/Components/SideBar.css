@@ -5,6 +5,7 @@
     align-items: center;
     padding: 10px;
     margin-top: 10px;
+
 }
 
 .toggle-button-container > div {
@@ -12,7 +13,7 @@
 }
 
 .toggle-button-container .btn {
-    width: 200px; /* Set button width */
+    width: 200px; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .side-title {
