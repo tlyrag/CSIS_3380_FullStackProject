@@ -71,7 +71,7 @@ function ProductCard(props) {
         product={selectedProduct}
         addToCart={handleAddToCart} // Pass addToCart function
       />
-      <Toast
+      <Toast id="cart-toast"
         show={showToast}
         onClose={() => setShowToast(false)}
         delay={3000}

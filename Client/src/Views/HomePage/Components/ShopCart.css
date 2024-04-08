@@ -10,7 +10,12 @@
     justify-content: center;
     align-items: center;
   }
-  
+  #col-qtd {
+    width: 50px;
+  }
+  #col-price{
+    width: 50px;
+  }
   .card {
     width: 80%;
     max-width: 600px;
@@ -38,21 +43,13 @@
     box-sizing: border-box;
   }
   
-  .decrement,
-  .increment,
-  .delete-element {
-    width: 20px;
-    height: 20px;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ced4da;
-  
-    
+
+  .line-item-btn {
+    width: 15px;
+    height: 30px;
+    text-align: center;
+
   }
-  
-  
   .summary {
     padding: 0 20px;
   }

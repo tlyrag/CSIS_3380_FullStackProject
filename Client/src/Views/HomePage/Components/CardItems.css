@@ -11,17 +11,20 @@
   margin-bottom: 5px;
 }
 
+#cart-toast {
+  position: fixed;
+}
 .toast-container {
-  position: fixed; /* Position fixed relative to viewport */
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  z-index: 999; /* Ensure it appears on top of other content */
-  max-width: 300px; /* Adjust maximum width as needed */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
-  max-height: 90vh; /* Limit maximum height to 90% of viewport height */
+  z-index: 999; 
+  max-width: 300px; 
+  overflow-y: auto; 
+  max-height: 90vh; 
 }
 
 .toast-container.show {

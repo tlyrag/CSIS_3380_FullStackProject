@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ShopCart.css';
-import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Button, Dropdown, DropdownButton,Col } from 'react-bootstrap';
+
 
 const ShopCart = (props) => {
   const [selectedShipping, setSelectedShipping] = useState('');
@@ -67,27 +68,27 @@ const ShopCart = (props) => {
             {props.cartProduct.map((item, index) => (
               <div key={index} className="row border-top border-bottom">
                 <div className="row main align-items-center">
-                  <div className="col-2">
+                  <Col >
                     <img className="img-fluid" src={item.product.image} alt={item.product.title} />
-                  </div>
-                  <div className="col">
+                  </Col>
+                  <Col >
                     <div className="row text-muted">{item.product.title}</div>
-                  </div>
-                  <div className="col">
-                    <button className="decrement" onClick={() => handleDecrement(index)}>
+                  </Col>
+                  <Col id="col-qtd">
+                    <Button  className ="line-item-btn" onClick={() => handleDecrement(index)}>
                       -
-                    </button>
+                    </Button>
                     <span className="border item-quantity"> {item.quantity}</span>
-                    <button className="increment" onClick={() => handleIncrement(index)}>
+                    <Button  className ="line-item-btn" onClick={() => handleIncrement(index)}>
                       +
-                    </button>
-                  </div>
-                  <div className="col item-quantity" >
+                    </Button>
+                  </Col>
+                  <Col  id="col-price">
                     $ {(item.product.price * item.quantity).toFixed(2)}
-                    <button className="delete-element" onClick={() => handleDelete(index)}>
+                    <Button  className ="line-item-btn" onClick={() => handleDelete(index)}>
                       &#10005;
-                    </button>
-                  </div>
+                    </Button>
+                  </Col>
                 </div>
               </div>
             ))}
