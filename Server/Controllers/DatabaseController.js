@@ -23,6 +23,7 @@ const getAllProducts = async () =>{;
     }
 
 
+
 const createData  = async () => {
     testList.data.forEach(async product => {
         const id = product.id;

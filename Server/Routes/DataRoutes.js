@@ -6,7 +6,6 @@ import StaticData from "../Model/StaticData.js"
 export default(app) => {
     // Check if server is up and running
     app.get('/api/v1/health-check',(req,res) => {
-        DBController.createData()
 
         res.json({
             ok:true,
@@ -74,6 +73,17 @@ export default(app) => {
                 ok:false,
                 error:error
             })
+        }
+    })
+
+    app.post('/addtocart/:id',async (req,res) => {
+        const params =req.params.id;
+
+        try {
+            
+        }
+        catch(error) {
+            console.log("Failed to add product to Cart")
         }
     })
 
