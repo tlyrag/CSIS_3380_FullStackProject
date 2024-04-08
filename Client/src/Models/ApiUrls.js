@@ -9,7 +9,9 @@ const getApiUrl = () => {
 const productApiUrl = (itemNumber) =>{
     return `${getApiUrl()}/products?limit=${itemNumber}`
 } 
-
+const addToCart = (id) =>{
+    return `${getApiUrl()}/addtocart/${id}`
+} 
 const categoryApiUrl =() => {
     return `${getApiUrl()}/products/categories`
 }
@@ -25,7 +27,8 @@ const apiUrls = {
     categoryApiUrl,
     productApiUrl,
     singleProductUrl,
-    productByCategoryUrl
+    productByCategoryUrl,
+    addToCart
 }
 export default apiUrls;
 

@@ -11,7 +11,11 @@ const getProductData = (numItem) => {
     })
     .catch(err=> console.log(`Error consuming api ${err}`))
 }
- 
+
+const addtocart =(id) => {
+    return fetch(apiUrls.addToCart(id), {method:'POST'})
+    .catch(err=> console.log(`Failed to add to cart ${err}`))
+}
 
 const getproductCategory = () => {
     return fetch(apiUrls.categoryApiUrl())
@@ -37,7 +41,8 @@ const apiController ={
     getProductData, 
     getproductCategory,
     getProductbyId,
-    getproductByCategory
+    getproductByCategory,
+    addtocart
 }
  
 

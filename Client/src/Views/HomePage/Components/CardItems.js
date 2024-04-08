@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card, Spinner, Button, Toast } from 'react-bootstrap';
 import "./CardItems.css";
 import ProductDetailsModal from './productDetailsModal';
+import apiController from '../../../Controllers/ApiController';
 
 function ProductCard(props) {
   const [showModal, setShowModal] = useState(false);
@@ -57,7 +58,10 @@ function ProductCard(props) {
             <Card.Text>CAD$ ${product.price}</Card.Text>
             <Button
               className="add-cart"
-              onClick={() => handleAddToCart(product)}
+              onClick={() => {
+                apiController.addtocart(product.id)
+                handleAddToCart(product)}
+                }
             >
               Add to Cart
             </Button>
