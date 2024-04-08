@@ -10,10 +10,19 @@ const productSchema = new mongoose.Schema({
 
 
 })
+const cartSchema = new mongoose.Schema({
+    productId: {type: Number, required:true},
+    title:{type:String, required: true},
+    price:{type:Number,required:true},
+    image:{type:String,required:true},
+
+})
+const Cart = mongoose.model("Cart",cartSchema);
 
 const Product = mongoose.model("Product",productSchema);
 
 const databaseModel = {
-    Product
+    Product,
+    Cart
 }
 export default databaseModel

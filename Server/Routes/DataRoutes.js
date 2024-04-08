@@ -80,7 +80,11 @@ export default(app) => {
         const params =req.params.id;
 
         try {
-            
+            console.log("Calling Add to Cart APi")
+            const product = await DBController.getProductById(req.params.id);
+            console.log("got here 1")
+            await DBController.addToCart(product);
+            console.log("got here 2")
         }
         catch(error) {
             console.log("Failed to add product to Cart")

@@ -21,8 +21,26 @@ const getAllProducts = async () =>{;
     const product = await dbModel.Product.find()
     return product
     }
+const getProductById = async (id) =>{
+   
+    const product = await dbModel.Product.findOne({id:id})
+    return product
+} 
 
-
+const addToCart = async (item) => {
+    const { title, price, image } = item;
+    const productId = item.id;
+    console.log(item)
+    const newItem = new dbModel.Cart({
+        productId,
+        title,
+        price,
+        image
+        })
+    console.log(newItem)
+        await newItem.save().catch(err=> console.log(`Error saving data: ${err}`));
+       
+}
 
 const createData  = async () => {
     testList.data.forEach(async product => {
@@ -43,7 +61,7 @@ const createData  = async () => {
             image,
             rating
         })
-        console.log(newProduct);
+        
         await newProduct.save();
         
     })
@@ -53,7 +71,9 @@ const createData  = async () => {
 const mongodb ={
     connect,
     getAllProducts,
-    createData
+    createData,
+    addToCart,
+    getProductById
 }
 export default  mongodb
 
