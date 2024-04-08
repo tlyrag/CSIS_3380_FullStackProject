@@ -92,7 +92,7 @@ const ShopCart = (props) => {
               </div>
             ))}
             <div className="back-to-shop">
-              <Button className="text-muted" onClick={() => showCart()}>
+              <Button  onClick={() => showCart()}>
                 Back to shop
               </Button>
             </div>

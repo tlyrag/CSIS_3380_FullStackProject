@@ -2,9 +2,11 @@
     background-color: #28231C;
     color: white;
 }
-#side-bar-row {
-    position: fixed;
-}
+@media (min-width: 951px) {
+    #side-bar-row {
+      position: fixed;
+    }
+  }
 /* #main-content {
     background-color: FFFFFF;
     color: black;
